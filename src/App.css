@@ -18,42 +18,34 @@ body {
   width: 100%;
   font-family: var(--fontFamily);
   font-size: 62.5%;
-  overflow-x: hidden;
 }
 
 .navbar {
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  height: 70px;
-  padding-left: 1.5rem;
   width: 100%;
-}
-
-.navbar__logo {
-  width: 4.4rem;
-  cursor: pointer;
+  padding: 1rem 2rem;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero {
-  padding: 2rem;
-  width: 100%;
+  margin-top: 1.4rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
 }
 
 .hero__img {
-  align-self: center;
+  text-align: center;
 }
 
 .hero__img img {
-  max-width: 80%;
+  width: 80%;
 }
 
 .hero__heading {
+  margin-top: 0.3rem;
   font-size: 2.4rem;
-  margin: 1rem 0;
-  line-height: 1.1;
+  line-height: 1.5;
 }
 
 .hero__text {
@@ -61,52 +53,65 @@ body {
   color: var(--lightBlc);
 }
 
-.cardcontainer {
-  padding: 1rem 2rem;
-  margin-bottom: 1.5rem;
+.cardContainer {
   display: flex;
+  padding: 1rem 1.5rem;
 }
 
-.cardcontainer__card {
+.card {
   margin-right: 1rem;
 }
 
-.cardcontainer__card--img img {
+.card__img {
+  position: relative;
+  display: inline-block;
+}
+
+.card__img img {
   width: 175px;
+  height: 220px;
 }
 
-.cardcontainer__card--stats {
-  margin-top: 0.2rem;
-  font-size: 12px;
+.card__soldout {
+  position: absolute;
+  left: 5%;
+  top: 3%;
+  background-color: white;
+  padding: 0.1rem 0.3rem;
+  letter-spacing: 1px;
+  border-radius: 0.3rem;
 }
 
-.cardcontainer__card--stats-rating img {
-  width: 14px;
-  margin-right: 0.3rem;
-}
-
-.cardcontainer__card--stats-rating__buyer {
-  margin: 0 0.2rem;
-  color: var(--lightBlue);
-}
-
-.cardcontainer__card--stats-rating__country {
-  color: var(--lightBlue);
-}
-
-.cardcontainer__card--stats-name,
-.cardcontainer__card--stats-price,
-.cardcontainer__card--stats-rating__ratingStar {
+.card__stats {
+  font-size: 0.78rem;
   color: var(--lightBlc);
 }
 
-@media only screen and (max-width: 480px) {
-  .cardcontainer {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 1rem;
+.card__stats--rating img {
+  width: 0.8rem;
+  margin-right: 0.3rem;
+}
+
+.card__stats--rating-ratingStar {
+  font-size: 0.9rem;
+}
+
+.card__stats--rating-reviewCount {
+  color: var(--lightBlue);
+  margin: 0 0.3rem;
+}
+
+.card__stats--rating-country {
+  color: var(--lightBlue);
+}
+
+@media only screen and (max-width: 600px) {
+  .cardContainer {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
-  .cardcontainer__card {
-    margin-right: 0;
+  .card {
+    margin-bottom: 2rem;
   }
 }

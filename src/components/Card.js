@@ -1,32 +1,34 @@
 import React from "react";
 
-export default function Card() {
+export default function Card(props) {
+  let badgeText;
+  if (props.spots === 0) {
+    badgeText = "SOLD OUT";
+  } else if (props.location === "Online") {
+    badgeText = "ONLINE";
+  }
+
   return (
-    <div className="cardcontainer">
-      <div className="cardcontainer__card">
-        <div className="cardcontainer__card--img">
-          <img src="./img/image.png" alt="Katie Zaferes" />
-        </div>
-        <div className="cardcontainer__card--stats">
-          <p className="cardcontainer__card--stats-rating">
-            <img src="./img/star.png" alt="Star" />
-            <span className="cardcontainer__card--stats-rating__ratingStar">
-              5.0
-            </span>
-            <span className="cardcontainer__card--stats-rating__buyer">
-              (6)
-            </span>
-            <span className="cardcontainer__card--stats-rating__country">
-              USA
-            </span>
-          </p>
-          <p className="cardcontainer__card--stats-name">
-            Life lessons with Katie Zaferes
-          </p>
-          <p className="cardcontainer__card--stats-price">
-            <strong>From $136</strong>/ person
-          </p>
-        </div>
+    <div className="card">
+      <div className="card__img">
+        <img src={`./img/${props.coverImg}`} alt="Katie Zaferes" />
+        {badgeText && <div className="card__soldout">{badgeText}</div>}
+      </div>
+      <div className="card__stats">
+        <p className="card__stats--rating">
+          <img src="./img/star.png" alt="Star" />
+          <span className="card__stats--rating-ratingStar">
+            {props.stats.rating}
+          </span>
+          <span className="card__stats--rating-reviewCount">
+            ({props.stats.reviewCount})
+          </span>
+          <span className="card__stats--rating-country">{props.location}</span>
+        </p>
+        <p className="card__stats--name">{props.title}</p>
+        <p className="card__stats--price">
+          <strong>From ${props.price}</strong> / person
+        </p>
       </div>
     </div>
   );
